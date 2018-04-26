@@ -13,6 +13,7 @@
 
 @property (readonly) NSString *order;
 
+// 初始化、解码
 - (id) initWithOrder:(NSString *)order;
 
 @end

@@ -18,16 +18,18 @@
     return self;
 }
 
-// initWithCoder: 方法是有协议NSCoding声明的，可以使用 【归档】状态初始化对象。
+// initWithCoder: 方法是有协议NSCoding声明的，可以使用 【解码】Order实例的归档状态初始化对象。
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
+        
         _order = [coder decodeObjectForKey:@"ORDER_KEY"];
     }
     return self;
 }
 
-// 【解码】order实例的归档数据
-
+//归档(序列化)
+//对Order对象进行归档时,此方法执行
+//对Order中想要进行归档的所有属性,进行序列化操作
 - (void) encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.order forKey:@"ORDER_KEY"];
 }
